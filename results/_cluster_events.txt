@@ -1,0 +1,16 @@
+anon-user@MacBookPro kenn-compiler % time (kubectl apply -f dummy_topologies/tier_250/ && kubectl wait --for=condition=Available deployment --all --timeout=120m)
+deployment.apps/svc-1 created
+networkpolicy.networking.k8s.io/svc-1-netpol created
+...
+[248 services omitted for brevity]
+...
+deployment.apps/svc-250 created
+networkpolicy.networking.k8s.io/svc-250-netpol created
+deployment.apps/svc-1 condition met
+deployment.apps/svc-2 condition met
+...
+error: timed out waiting for the condition on deployments/svc-48
+error: timed out waiting for the condition on deployments/svc-49
+error: timed out waiting for the condition on deployments/svc-50
+
+( kubectl apply -f dummy_topologies/tier_250/ && kubectl wait deployment --al) 1.20s user 0.45s system 0% cpu 121:11.00 total
