@@ -1,0 +1,15 @@
+{
+  "topologyId": "checkout-service",
+  "verifiedBounds": {
+    "cpuLimit": "500m",
+    "memoryLimit": "1Gi"
+  },
+  "deploymentStrategy": {
+    "maxSurge": 14,
+    "maxUnavailable": 0
+  },
+  "intersections": [
+    { "target": "inventory-db", "port": 5432, "protocol": "TCP" },
+    { "target": "pricing-api", "port": 8080, "protocol": "TCP" }
+  ]
+}
